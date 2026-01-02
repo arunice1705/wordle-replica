@@ -1,0 +1,53 @@
+.cell {
+    width: 60px;
+    height: 60px;
+    border: 4px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    background-color: white;
+    transition: background-color 0.2s, color 0.2s;
+    box-sizing: border-box;
+    /* Ensure border doesn't add to size */
+}
+
+/* Status variants */
+.cell.empty {
+    background-color: white;
+    color: black;
+}
+
+.cell.correct {
+    background-color: white;
+    color: #00ff00;
+    /* Green */
+    border-color: #00ff00;
+}
+
+.cell.present {
+    background-color: #ff5500;
+    /* Orange */
+    color: black;
+}
+
+.cell.absent {
+    background-color: #cccccc;
+    /* Grey */
+    color: #777;
+    /* Slightly darker grey for text or keep black? user said grey out */
+    color: rgba(0, 0, 0, 0.3);
+}
+
+/* Animation for populating */
+.cell[data-filled="true"] {
+    animation: pop 0.1s;
+}
+
+@keyframes pop {
+    50% {
+        transform: scale(1.1);
+    }
+}
